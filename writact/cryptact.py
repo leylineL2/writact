@@ -17,7 +17,7 @@ class CryptactTool:
 			print(record)
 
 
-	def mining(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,counter:str='JPY',fee:float=float(0),feeccy:str='JPY'):
+	def mining(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,counter:str='JPY',fee:float=float(0),feeccy:str='JPY',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'MINING'
@@ -29,10 +29,11 @@ class CryptactTool:
 		r.counter = counter
 		r.fee = fee
 		r.feeccy = feeccy
+		r.comment = comment
 		self.records.append(r)
 
 
-	def sendfee(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None):
+	def sendfee(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'SENDFEE'
@@ -42,11 +43,12 @@ class CryptactTool:
 		if (price != None):
 			r.price = price
 		r.fill_blank_non_use()
+		r.comment = comment
 		self.records.append(r)
 
 
 
-	def bonus(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None):
+	def bonus(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'BONUS'
@@ -56,10 +58,11 @@ class CryptactTool:
 		if (price != None):
 			r.price = price
 		r.fill_blank_non_use()
+		r.comment = comment
 		self.records.append(r)
 
 
-	def lend(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,fee:float=float(0),feeccy:str='JPY'):
+	def lend(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,fee:float=float(0),feeccy:str='JPY',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'LEND'
@@ -71,10 +74,11 @@ class CryptactTool:
 		r.fill_blank_non_use()
 		r.fee = fee
 		r.feeccy = feeccy
+		r.comment = comment
 		self.records.append(r)
 
 
-	def lending(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,fee:float=float(0),feeccy:str='JPY'):
+	def lending(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,fee:float=float(0),feeccy:str='JPY',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'LEND'
@@ -86,10 +90,11 @@ class CryptactTool:
 		r.fill_blank_non_use()
 		r.fee = fee
 		r.feeccy = feeccy
+		r.comment = comment
 		self.records.append(r)
 
 
-	def recover(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,fee:float=float(0),feeccy:str='JPY'):
+	def recover(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,fee:float=float(0),feeccy:str='JPY',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'RECOVER'
@@ -101,10 +106,11 @@ class CryptactTool:
 		r.fill_blank_non_use()
 		r.fee = fee
 		r.feeccy = feeccy
+		r.comment = comment
 		self.records.append(r)
 
 
-	def staking(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,fee:float=float(0),feeccy:str='JPY'):
+	def staking(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,fee:float=float(0),feeccy:str='JPY',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'STAKING'
@@ -116,10 +122,11 @@ class CryptactTool:
 		r.fill_blank_non_use()
 		r.fee = fee
 		r.feeccy = feeccy
+		r.comment = comment
 		self.records.append(r)
 
 
-	def loss(self,timestamp:int|str,base:str,volume:float,source:str='',feeccy:str='JPY'):
+	def loss(self,timestamp:int|str,base:str,volume:float,source:str='',feeccy:str='JPY',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'LOSS'
@@ -130,10 +137,11 @@ class CryptactTool:
 		r.fill_blank_non_use()
 		r.fee = 0
 		r.feeccy = feeccy
+		r.comment = comment
 		self.records.append(r)
 
 
-	def borrow(self,timestamp:int|str,base:str,volume:float,source:str='',counter:str='JPY',fee:float=float(0),feeccy:str='JPY'):
+	def borrow(self,timestamp:int|str,base:str,volume:float,source:str='',counter:str='JPY',fee:float=float(0),feeccy:str='JPY',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'BORROW'
@@ -143,9 +151,10 @@ class CryptactTool:
 		r.counter = counter
 		r.fee = fee
 		r.feeccy = feeccy
+		r.comment = comment
 		self.records.append(r)
 
-	def return_(self,timestamp:int|str,base:str,volume:float,source:str='',counter:str='JPY',fee:float=float(0),feeccy:str='JPY'):
+	def return_(self,timestamp:int|str,base:str,volume:float,source:str='',counter:str='JPY',fee:float=float(0),feeccy:str='JPY',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'RETURN'
@@ -155,10 +164,10 @@ class CryptactTool:
 		r.counter = counter
 		r.fee = fee
 		r.feeccy = feeccy
-		self.records.append(r)		
+		self.records.append(r)
 
 
-	def reduce(self,timestamp:int|str,base:str,volume:float,source:str='',counter:str='JPY',fee:float=float(0),feeccy:str='JPY'):
+	def reduce(self,timestamp:int|str,base:str,volume:float,source:str='',counter:str='JPY',fee:float=float(0),feeccy:str='JPY',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'REDUCE'
@@ -168,10 +177,10 @@ class CryptactTool:
 		r.counter = counter
 		r.fee = fee
 		r.feeccy = feeccy
-		self.records.append(r)		
+		self.records.append(r)
 
-	
-	def cash(self,timestamp:int|str,counter:str,fee:float=float(0),source:str=''):
+
+	def cash(self,timestamp:int|str,counter:str,fee:float=float(0),source:str='',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'CASH'
@@ -182,10 +191,11 @@ class CryptactTool:
 		r.counter = counter
 		r.fee = fee
 		r.feeccy = counter
+		r.comment = comment
 		self.records.append(r)
 
 
-	def buy(self,timestamp:int|str,base:str,volume:float,counter_amount:float,source:str='',counter:str='JPY',fee:float=float(0),feeccy:str='JPY'):
+	def buy(self,timestamp:int|str,base:str,volume:float,counter_amount:float,source:str='',counter:str='JPY',fee:float=float(0),feeccy:str='JPY',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'BUY'
@@ -196,10 +206,11 @@ class CryptactTool:
 		r.counter = counter
 		r.fee = fee
 		r.feeccy = feeccy
+		r.comment = comment
 		self.records.append(r)
 
 
-	def sell(self,timestamp:int|str,base:str,volume:float,counter_amount:float,source:str='',counter:str='JPY',fee:float=float(0),feeccy:str='JPY'):
+	def sell(self,timestamp:int|str,base:str,volume:float,counter_amount:float,source:str='',counter:str='JPY',fee:float=float(0),feeccy:str='JPY',comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'SELL'
@@ -210,10 +221,11 @@ class CryptactTool:
 		r.counter = counter
 		r.fee = fee
 		r.feeccy = feeccy
+		r.comment = comment
 		self.records.append(r)
-		
 
-	def defifee(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None):
+
+	def defifee(self,timestamp:int|str,base:str,volume:float,source:str='',price:float|None=None,comment:str=''):
 		r = Record()
 		r.timestamp = timestamp
 		r.action = 'DEFIFEE'
@@ -223,4 +235,5 @@ class CryptactTool:
 		if (price != None):
 			r.price = price
 		r.fill_blank_non_use()
+		r.comment = comment
 		self.records.append(r)
